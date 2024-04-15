@@ -42,7 +42,7 @@ public class interactions : MonoBehaviour
         
         
 
-        if (Input.GetKeyDown(KeyCode.E) && !isInteracting)
+        if (Input.GetButtonDown("Fire1") && !isInteracting)
         {
             
             if (Physics.Raycast(playerCamera.transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, interactableLayer))
