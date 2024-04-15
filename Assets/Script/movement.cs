@@ -14,7 +14,6 @@ public class movement : MonoBehaviour
     public float sphereRadius = 0.2f;
 
     bool isGrounded;
-    bool isSprinting = false;
 
     Vector3 velocity;
     public LayerMask mask;
