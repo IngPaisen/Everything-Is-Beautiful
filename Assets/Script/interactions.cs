@@ -16,6 +16,7 @@ public class interactions : MonoBehaviour
     public LayerMask interactableLayer; 
     public LayerMask interactableDoor;
     public int whyinteraction;
+    bool isPlay = true;
 
     [SerializeField] private bool isInteracting = false;
 
@@ -55,28 +56,47 @@ public class interactions : MonoBehaviour
                     switch (whyinteraction)
                     {
                         case 0:
-                            soundManager.InteractionSound();
-                            soundManager.InteractionDialoge(whyinteraction);
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                            }
+                            
                             break;
                         case 1:
-                            soundManager.InteractionSound();
-                            soundManager.InteractionDialoge(whyinteraction);
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                            }
                             break;
                         case 2:
-                            soundManager.InteractionSound();
-                            soundManager.InteractionDialoge(whyinteraction);
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                            }
                             break;
                         case 3:
-                            soundManager.InteractionSound();
-                            soundManager.InteractionDialoge(whyinteraction);
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                            }
                             break;
                         case 4:
-                            soundManager.InteractionSound();
-                            soundManager.InteractionDialoge(whyinteraction);
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                            }
                             break;
                         case 5:
-                            soundManager.InteractionSound();
-                            soundManager.InteractionDialoge(whyinteraction);
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                            }
                             break;
                         default:
                             Console.WriteLine("Opción no válida");
