@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class movement : MonoBehaviour
 {
-    public camera camera;
+    public camera cam;
     public CharacterController cController;
     public Transform groundCheck;
 
@@ -37,11 +37,11 @@ public class movement : MonoBehaviour
         bool isMovingForward = Input.GetKey(KeyCode.W) || z > 0;
         if (isMovingForward)
         {
-            camera.isWalking = true;
+            cam.isWalking = true;
         }
         else
         {
-            camera.isWalking = false;
+            cam.isWalking = false;
         }
 
         //Mueve y controla la velocidad de movimiento del personaje.

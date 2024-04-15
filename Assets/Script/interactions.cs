@@ -1,0 +1,101 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
+using static UnityEditor.Progress;
+
+public class interactions : MonoBehaviour
+{
+    public doorSystem doorsystem;
+    public soundManager soundManager;
+    public float interactDistance = 5f;
+    public GameObject playerCamera; 
+    public LayerMask interactableLayer; 
+    public LayerMask interactableDoor;
+    public int whyinteraction;
+
+    [SerializeField] private bool isInteracting = false;
+
+    int noInteractions = 0;
+
+    private void Awake()
+    {
+        
+        soundManager = FindObjectOfType<soundManager>();
+        soundManager.GetComponent<soundManager>();
+
+
+    }
+    private void Start()
+    {
+        interactableLayer = LayerMask.GetMask("interactableLayer");
+        interactableDoor = LayerMask.GetMask("DoorLayer");
+    }
+
+    void Update()
+    {
+        RaycastHit hit;
+        
+        
+
+        if (Input.GetKeyDown(KeyCode.E) && !isInteracting)
+        {
+            
+            if (Physics.Raycast(playerCamera.transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, interactableLayer))
+            {
+                
+                interactableObjet interactableobject = hit.collider.GetComponent<interactableObjet>();
+                if (interactableobject != null)
+                {
+                    whyinteraction = interactableobject.objectID;
+
+                    switch (whyinteraction)
+                    {
+                        case 0:
+                            soundManager.InteractionSound();
+                            soundManager.InteractionDialoge(whyinteraction);
+                            break;
+                        case 1:
+                            soundManager.InteractionSound();
+                            soundManager.InteractionDialoge(whyinteraction);
+                            break;
+                        case 2:
+                            soundManager.InteractionSound();
+                            soundManager.InteractionDialoge(whyinteraction);
+                            break;
+                        case 3:
+                            soundManager.InteractionSound();
+                            soundManager.InteractionDialoge(whyinteraction);
+                            break;
+                        case 4:
+                            soundManager.InteractionSound();
+                            soundManager.InteractionDialoge(whyinteraction);
+                            break;
+                        case 5:
+                            soundManager.InteractionSound();
+                            soundManager.InteractionDialoge(whyinteraction);
+                            break;
+                        default:
+                            Console.WriteLine("Opción no válida");
+                            break;
+                    }
+                }
+            }
+
+            
+            if (Physics.Raycast(playerCamera.transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, interactableDoor))
+            {
+                //soundManager.InteractionSound();
+                //soundManager.Doors();
+                hit.collider.transform.GetComponent<doorSystem>().ChangeDoorState();
+            }
+
+
+        }
+    }
+
+   
+}
