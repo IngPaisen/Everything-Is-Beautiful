@@ -108,9 +108,8 @@ public class interactions : MonoBehaviour
             
             if (Physics.Raycast(playerCamera.transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, interactableDoor))
             {
-                //soundManager.InteractionSound();
-                //soundManager.Doors();
-                hit.collider.transform.GetComponent<doorSystem>().ChangeDoorState();
+                    hit.collider.transform.GetComponent<doorSystem>().ChangeDoorState1();
+              
             }
 
 
