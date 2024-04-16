@@ -9,7 +9,7 @@ public class doorSystem : MonoBehaviour
     public float openDoorAngle = 90f;
     public float openDoorAngle2 = -160f;
     public float closeDoorAngle = 0f;
-    public float smooth = 3.0f;
+    public float smooth = 1f;
 
     public soundManager soundManager;
 
@@ -35,12 +35,12 @@ public class doorSystem : MonoBehaviour
         if (openDoor)
         {
             Quaternion targetRotation = Quaternion.Euler(0, openDoorAngle, 0);
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
         }
         else
         {
             Quaternion targetRotation = Quaternion.Euler(0, 0, 0);
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
         }
 
         if (openDoor2)

@@ -5,7 +5,6 @@ using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class interactions : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class interactions : MonoBehaviour
 
     [SerializeField] private bool isInteracting = false;
 
-    int noInteractions = 0;
+    [SerializeField] int noInteractions = 0;
 
     private void Awake()
     {
@@ -47,19 +46,22 @@ public class interactions : MonoBehaviour
             
             if (Physics.Raycast(playerCamera.transform.position, transform.TransformDirection(Vector3.forward), out hit, interactDistance, interactableLayer))
             {
-                
+             
+
                 interactableObjet interactableobject = hit.collider.GetComponent<interactableObjet>();
                 if (interactableobject != null)
                 {
                     whyinteraction = interactableobject.objectID;
-
+                    
                     switch (whyinteraction)
                     {
                         case 0:
                             if (isPlay)
                             {
+                                
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
                             }
                             
                             break;
@@ -68,6 +70,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
                             }
                             break;
                         case 2:
@@ -75,6 +78,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
                             }
                             break;
                         case 3:
@@ -82,6 +86,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
                             }
                             break;
                         case 4:
@@ -89,6 +94,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
                             }
                             break;
                         case 5:
@@ -96,6 +102,79 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
+                            }
+                            break;
+                        case 6:
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
+                            }
+                            break;
+                        case 7:
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
+                            }
+                            break;
+                        case 8:
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
+                            }
+                            break;
+                        case 9:
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
+                            }
+                            break;
+                        case 10:
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
+                            }
+                            break;
+                        case 11:
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
+                            }
+                            break;
+                        case 12:
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
+                            }
+                            break;
+                        case 13:
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
+                            }
+                            break;
+                        case 14:
+                            if (isPlay)
+                            {
+                                soundManager.InteractionSound();
+                                soundManager.InteractionDialoge(whyinteraction);
+                                noInteractions++;
                             }
                             break;
                         default:
@@ -114,7 +193,61 @@ public class interactions : MonoBehaviour
 
 
         }
+
+        if (noInteractions == 4 && !isPlay)
+        {
+            
+            soundManager.InteractionSound();
+            soundManager.InteractionDialoge(16);
+        }
+
+        if (noInteractions == 7)
+        {
+            soundManager.InteractionSound();
+            soundManager.InteractionDialoge(17);
+        }
+
+        if (noInteractions == 10)
+        {
+            soundManager.InteractionSound();
+            soundManager.InteractionDialoge(18);
+        }
+
+        if (noInteractions == 13)
+        {
+            soundManager.InteractionSound();
+            soundManager.InteractionDialoge(19);
+        }
+
+
     }
 
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.CompareTag("Andrea"))
+        {
+            print("Si entro");
+            soundManager.InteractionSound();
+            soundManager.InteractionDialoge(13);
+            noInteractions++;
+
+        }
+        if (other.CompareTag("Estudio"))
+        {
+            soundManager.InteractionSound();
+            soundManager.InteractionDialoge(15);
+            noInteractions++;
+
+        }
+        if (other.CompareTag("Principal"))
+        {
+            soundManager.InteractionSound();
+            soundManager.InteractionDialoge(14);
+            noInteractions++;
+
+        }
+    }
+
+
 }

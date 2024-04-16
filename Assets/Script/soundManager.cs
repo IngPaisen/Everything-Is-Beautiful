@@ -28,6 +28,7 @@ public class soundManager : MonoBehaviour
 
     public void InteractionSound()
     {
+        audioInteractions.Stop();
         audioInteractions.PlayOneShot(audiosClipsSounds[0], 1f);
        
 
@@ -35,12 +36,14 @@ public class soundManager : MonoBehaviour
 
     public void Doors()
     {
-        audioInteractions.PlayOneShot(audiosClipsSounds[1], 1f);
+        audioInteractions.Stop();
+        audioInteractions.PlayOneShot(audiosClipsSounds[100], 1f);
     }
 
     public void InteractionDialoge(int whyinteraction)
     {
-        audioInteractions.PlayOneShot(audiosClipsDialog[whyinteraction], 1f);
+        audioDialogue.Stop();
+        audioDialogue.PlayOneShot(audiosClipsDialog[whyinteraction], 1f);
 
 
     }
