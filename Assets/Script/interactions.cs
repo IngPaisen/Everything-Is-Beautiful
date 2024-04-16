@@ -161,22 +161,6 @@ public class interactions : MonoBehaviour
                                 noInteractions++;
                             }
                             break;
-                        case 13:
-                            if (isPlay)
-                            {
-                                soundManager.InteractionSound();
-                                soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
-                            }
-                            break;
-                        case 14:
-                            if (isPlay)
-                            {
-                                soundManager.InteractionSound();
-                                soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
-                            }
-                            break;
                         default:
                             Console.WriteLine("Opción no válida");
                             break;
@@ -194,6 +178,8 @@ public class interactions : MonoBehaviour
 
         }
 
+
+        //Por arreglar
         if (noInteractions == 4 && !isPlay)
         {
             
@@ -227,10 +213,10 @@ public class interactions : MonoBehaviour
         
         if (other.CompareTag("Andrea"))
         {
-            print("Si entro");
             soundManager.InteractionSound();
             soundManager.InteractionDialoge(13);
             noInteractions++;
+            
 
         }
         if (other.CompareTag("Estudio"))
