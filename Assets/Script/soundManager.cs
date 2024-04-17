@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class soundManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class soundManager : MonoBehaviour
     [SerializeField] AudioSource audioMusic;
     [SerializeField] AudioSource audioDialogue;
     [SerializeField] AudioSource audioInteractions;
+
+    public UnityEvent OnAudioComplete;
 
 
     private void Start()
@@ -44,8 +47,16 @@ public class soundManager : MonoBehaviour
     {
         audioDialogue.Stop();
         audioDialogue.PlayOneShot(audiosClipsDialog[whyinteraction], 1f);
+        if (whyinteraction != 13 && whyinteraction != 14 && whyinteraction != 15 && whyinteraction != 16 && whyinteraction != 17 && whyinteraction != 18 && whyinteraction != 19)
+        {
+            Invoke("AudioComplete", audiosClipsDialog[whyinteraction].length);
+        }
 
+    }
 
+    void AudioComplete()
+    {
+        OnAudioComplete.Invoke();
     }
 
 

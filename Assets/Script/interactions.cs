@@ -33,6 +33,13 @@ public class interactions : MonoBehaviour
     {
         interactableLayer = LayerMask.GetMask("interactableLayer");
         interactableDoor = LayerMask.GetMask("DoorLayer");
+        soundManager.OnAudioComplete.AddListener(AmountCount);
+    }
+
+    void AmountCount()
+    {
+        print("Si aumenta");
+        noInteractions++;
     }
 
     void Update()
@@ -61,7 +68,7 @@ public class interactions : MonoBehaviour
                                 
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             
                             break;
@@ -70,7 +77,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         case 2:
@@ -78,7 +85,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         case 3:
@@ -86,7 +93,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         case 4:
@@ -94,7 +101,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         case 5:
@@ -102,7 +109,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         case 6:
@@ -110,7 +117,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         case 7:
@@ -118,7 +125,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         case 8:
@@ -126,7 +133,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         case 9:
@@ -134,7 +141,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         case 10:
@@ -142,7 +149,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         case 11:
@@ -150,7 +157,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         case 12:
@@ -158,7 +165,7 @@ public class interactions : MonoBehaviour
                             {
                                 soundManager.InteractionSound();
                                 soundManager.InteractionDialoge(whyinteraction);
-                                noInteractions++;
+                                
                             }
                             break;
                         default:
@@ -180,7 +187,7 @@ public class interactions : MonoBehaviour
 
 
         //Por arreglar
-        if (noInteractions == 4 && !isPlay)
+        if (noInteractions == 4)
         {
             
             soundManager.InteractionSound();
@@ -215,7 +222,7 @@ public class interactions : MonoBehaviour
         {
             soundManager.InteractionSound();
             soundManager.InteractionDialoge(13);
-            noInteractions++;
+            
             
 
         }
@@ -223,14 +230,14 @@ public class interactions : MonoBehaviour
         {
             soundManager.InteractionSound();
             soundManager.InteractionDialoge(15);
-            noInteractions++;
+            
 
         }
         if (other.CompareTag("Principal"))
         {
             soundManager.InteractionSound();
             soundManager.InteractionDialoge(14);
-            noInteractions++;
+            
 
         }
     }
